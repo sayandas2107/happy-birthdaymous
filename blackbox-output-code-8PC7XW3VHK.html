@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-pink: #ffb6c1;
+            --soft-pink: #ffe6ea;
+            --text-color: #5a3e46;
+            --accent-red: #e91e63;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        /* Hearts Animation */
+        #hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; overflow: hidden; }
+        .heart { position: absolute; color: var(--accent-red); font-size: 20px; animation: fall linear infinite; opacity: 0.8; }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+        /* Main Card */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.15);
+            position: relative;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+        /* Typography */
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: var(--accent-red); margin-bottom: 5px; text-shadow: 2px 2px 0px #fff; }
+        h2 { font-weight: 400; font-size: 1.1rem; margin-bottom: 30px; color: #888; letter-spacing: 1px; }
+        /* Timer */
+        .timer-box {
+            background: #fff; border: 2px solid var(--soft-pink);
+            padding: 20px; border-radius: 20px; margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .timer-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-red); margin-bottom: 15px; }
+        #timer { display: flex; justify-content: center; gap: 15px; }
+        .time-unit { display: flex; flex-direction: column; align-items: center; }
+        .time-val { font-size: 1.8rem; font-weight: 600; color: var(--accent-red); }
+        .time-label { font-size: 0.6rem; color: #aaa; letter-spacing: 1px; margin-top: -5px; }
+        /* Gallery */
+        .gallery-wrapper { width: 100%; overflow: hidden; border-radius: 15px; margin-bottom: 35px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .gallery-track { display: flex; animation: scroll 20s linear infinite; }
+        .gallery-img { width: 100%; height: 300px; object-fit: cover; flex-shrink: 0; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .gallery-track { animation: none; overflow-x: auto; scroll-snap-type: x mandatory; display: grid; grid-template-columns: repeat(3, 100%); }
+            .gallery-img { width: 100%; height: 250px; scroll-snap-align: center; }
+            .gallery-wrapper::-webkit-scrollbar { display: none; }
+        }
+        /* Music Player */
+        .music-player {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 25px; border-radius: 20px; color: #fff; margin-bottom: 30px;
+        }
+        .song-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; }
+        .btn {
+            background: #fff; color: var(--accent-red); border: none;
+            padding: 12px 30px; border-radius: 50px; font-weight: bold;
+            cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: scale(1.1); }
+        /* Message */
+        .message { font-size: 1rem; line-height: 1.8; color: #666; margin-bottom: 40px; }
+        footer { font-size: 0.8rem; color: #ccc; }
+    </style>
+</head>
+<body>
+    <!-- Hearts -->
+    <div id="hearts-container"></div>
+    <!-- Content -->
+    <div class="container">
+        <header>
+            <h1>Happy Birthday to baccha </h1>
+            <h2>My Sweet Heart baccha❤️</h2>
+        </header>
+        <!-- Relationship Timer -->
+        <div class="timer-box">
+            <div class="timer-title">We've Been Together For</div>
+            <div id="timer">
+                <div class="time-unit"><span class="time-val" id="days">000</span><span class="time-label">Days</span></div>
+                <div class="time-unit"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span></div>
+                <div class="time-unit"><span class="time-val" id="minutes">00</span><span class="time-label">Mins</span></div>
+                <div class="time-unit"><span class="time-val" id="seconds">00</span><span class="time-label">Secs</span></div>
+            </div>
+        </div>
+        <!-- Photo Gallery -->
+        <div class="gallery-wrapper">
+            <div class="gallery-track">
+                <!-- REPLACE THE src URLs BELOW WITH YOUR PHOTOS -->
+                <img src="https://placehold.co/600x300/ffb6c1/ffffff?text=Our+First+Date" class="gallery-img">
+                <img src="https://placehold.co/600x300/e91e63/ffffff?text=Best+Memories" class="gallery-img">
+                <img src="https://placehold.co/600x300/ffccd5/5a3e46?text=I+Love+You" class="gallery-img">
+            </div>
+        </div>
+        <!-- Music Player -->
+        <div class="music-player">
+            <div class="song-title">🎵 Our Song</div>
+            <button class="btn" onclick="toggleMusic()">▶ Play Music</button>
+            <!-- REPLACE THE src URL BELOW WITH YOUR MP3 FILE LINK -->
+            <audio id="bgm" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <!-- Message -->
+        <div class="message">
+            <p>Wishing you a day as beautiful as you are. Thank you for being in my life. I love you!</p>
+        </div>
+        <footer>Made with ❤️ by You</footer>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+
+        // *** CONFIGURATION ***
+        // SET YOUR ANNIVERSARY START DATE HERE (Year-Month-Day)
+        // Example: "2023-05-20" means May 20th, 2004
+        const startDate = new Date("2004-05-20").getTime(); 
+
+        // 1. TIMER LOGIC
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = now - startDate;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+
+        // 2. FALLING HEARTS ANIMATION
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '♥';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            heart.style.opacity = Math.random();
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+
+        // 3. MUSIC PLAYER LOGIC
+        const music = document.getElementById("bgm");
+        let isPlaying = false;
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                document.querySelector(".btn").innerHTML = "▶ Play Music";
+            } else {
+                music.play();
+                document.querySelector(".btn").innerHTML = "⏸ Pause";
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
